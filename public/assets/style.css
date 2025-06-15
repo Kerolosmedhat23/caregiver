@@ -1,0 +1,2076 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #007bff; /* Primary color from Sign Up button */
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-item {
+    text-decoration: none;
+    color: #555;
+    margin-left: 1.5rem;
+    font-size: 1em;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .nav-item:hover {
+    background-color: #f0f0f0;
+}
+
+.navbar .btn {
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    text-align: center;
+}
+
+.navbar .btn-signup {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.navbar .btn-signup:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.navbar .btn-login {
+    background-color: #f8f9fa;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.navbar .btn-login:hover {
+    background-color: #e2e6ea;
+    color: #0056b3;
+}
+
+/* Profile Dropdown Styles */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 1.5rem;
+}
+
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 25px; /* Optional: makes the whole trigger area pill-shaped */
+    transition: background-color 0.2s ease;
+}
+
+.profile-trigger:hover {
+    background-color: #e9ecef; /* Light hover for the trigger area */
+}
+
+.profile-dropdown .profile-pic { /* Styling for the image inside the trigger */
+    width: 35px;  /* Adjust size as needed */
+    height: 35px; /* Adjust size as needed */
+    border-radius: 50%; /* This makes the image circular */
+    border: 2px solid #007bff;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin-right: 8px; /* Space between image and text */
+}
+
+.profile-name-preview {
+    font-size: 0.95em;
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap; /* Prevents "User Profile" text from wrapping */
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0; /* Aligns dropdown to the right of the profile trigger */
+    top: 100%; /* Positions dropdown below the profile trigger */
+    background-color: #fff;
+    min-width: 180px; /* Adjust as needed */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10; /* Ensures dropdown is above other content */
+    border-radius: 5px;
+    overflow: hidden; /* Ensures border-radius applies to children */
+    margin-top: 8px; /* Small gap between trigger and dropdown */
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95em;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+/* Show the dropdown menu on hover over the profile-dropdown container */
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Optional: Change border of pic when the trigger or dropdown container is hovered */
+.profile-dropdown:hover .profile-trigger .profile-pic {
+    border-color: #0056b3;
+}
+
+/* Main Content Area */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+    font-weight: 600;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+.vital-signs h2 {
+    border-bottom: none; /* Specific for vital signs heading as per image */
+}
+
+.vital-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+    font-size: 2.5em;
+    margin-right: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+}
+
+.heart-icon { color: #e74c3c; background-color: rgba(231, 76, 60, 0.1); }
+.blood-icon { color: #3498db; background-color: rgba(52, 152, 219, 0.1); }
+.temp-icon { color: #f39c12; background-color: rgba(243, 156, 18, 0.1); }
+
+
+.card-content h3 {
+    margin: 0 0 0.3rem 0;
+    color: #555;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.card-content .vital-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.card-content .unit {
+    font-size: 0.7em;
+    color: #7f8c8d;
+    margin-left: 0.3rem;
+    font-weight: normal;
+}
+
+.caregiver-details {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.caregiver-details h2 {
+    margin-top: 0;
+    border-bottom: none;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .details-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .detail-item:not(:last-child) {
+     border-right: 1px solid #eee;
+     padding-right: 1rem;
+    }
+     .detail-item:last-child {
+     padding-right: 0;
+    }
+}
+
+.detail-item {
+    padding: 0.5rem 0;
+}
+
+.detail-item label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 0.3rem;
+    font-size: 0.9em;
+}
+
+.detail-item p {
+    margin: 0;
+    color: #333;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+.important-information {
+    background-color: #e9f5ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #bde0fe;
+    margin-bottom: 2rem;
+}
+
+.important-information h2 {
+    color: #0056b3;
+    margin-top: 0;
+    border-bottom: none;
+}
+.important-information h3 {
+    color: #0056b3;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1em;
+}
+
+.important-information p,
+.important-information ul li {
+    color: #31708f;
+    font-size: 0.95em;
+}
+
+.important-information ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    padding-left: 0.5rem;
+}
+
+.important-information ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #343a40;
+    color: #f8f9fa;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .navbar .nav-links {
+        margin-top: 1rem;
+        flex-direction: column;
+        width: 100%;
+        align-items: center; /* Ensures nav items and profile dropdown center */
+    }
+    .navbar .nav-item {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+        display: block;
+        width: calc(100% - 1.6rem); /* Adjust width considering padding */
+        text-align: center;
+    }
+
+    /* Profile dropdown responsive */
+    .profile-dropdown {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: auto; /* Allow it to size based on content or be centered by flex parent */
+        display: flex; /* Helps in centering the trigger if nav-links is also flex column */
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-trigger{
+        /* No specific change, should center well if profile-dropdown is centered */
+    }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+    border-radius: 5px;
+    overflow: hidden;
+    /* margin-top: 8px;  REMOVE or reduce this line */
+    /* For example, change to: */
+    margin-top: 0; /* Or a smaller value like 2px if you want a tiny visual separation */
+    /* You might also add a tiny bit of padding to the trigger if needed */
+}
+
+    header h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+    .card-content .vital-value {
+        font-size: 1.8em;
+    }
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .vital-cards {
+        grid-template-columns: 1fr;
+    }
+    .card-icon {
+        font-size: 2em;
+        margin-right: 1rem;
+        width: 50px;
+        height: 50px;
+    }
+    .card-content .vital-value {
+        font-size: 1.6em;
+    }
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    .detail-item:not(:last-child) {
+     border-right: none;
+     padding-right: 0;
+    }
+}
+/* Login Page Specific Styles
+-------------------------------------------------- */
+.login-page-body {
+    background-color: #f0f4f7; /* Light blue/gray background like the image */
+    display: flex; /* For sticky footer */
+    flex-direction: column; /* For sticky footer */
+    min-height: 100vh; /* For sticky footer */
+}
+
+.login-container {
+    flex-grow: 1; /* For sticky footer - pushes footer down */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem; /* Padding for smaller screens */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-card {
+    background-color: #fff;
+    padding: 2.5rem 3rem; /* Increased padding a bit */
+    border-radius: 10px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px; /* Slightly increased max-width */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-card h2 {
+    margin-bottom: 2rem; /* More space below title */
+    font-size: 1.9em;   /* Slightly larger title */
+    color: #333;
+    font-weight: 600;
+}
+
+.login-card .form-group {
+    margin-bottom: 1.25rem; /* Consistent spacing for form groups */
+    text-align: left;
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"] {
+    width: 100%;
+    padding: 0.9rem 1rem; /* Slightly taller inputs */
+    border: 1px solid #d0d5dd; /* Softer border color */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-card input[type="email"]::placeholder,
+.login-card input[type="password"]::placeholder {
+    color: #888; /* Lighter placeholder text */
+}
+
+.login-card input[type="email"]:focus,
+.login-card input[type="password"]:focus {
+    outline: none;
+    border-color: #32b2e7; /* Highlight color on focus - matches button */
+    box-shadow: 0 0 0 2px rgba(50, 178, 231, 0.2); /* Subtle glow on focus */
+}
+
+.login-card .forgot-password-link {
+    display: block;
+    text-align: right;
+    margin-top: -0.75rem; /* Pull up slightly if needed */
+    margin-bottom: 1.5rem;
+    font-size: 0.9em;
+    color: #32b2e7; /* Button blue */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-card .forgot-password-link:hover {
+    color: #239fd3; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+.login-card .btn-login-submit {
+    width: 100%;
+    padding: 0.9rem 1rem; /* Consistent padding with inputs */
+    background-color: #32b2e7; /* Sky blue from image */
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 1.5rem; /* Space below login button */
+}
+
+.login-card .btn-login-submit:hover {
+    background-color: #239fd3; /* Darker shade for hover */
+}
+
+.login-card .login-page-link { /* Common styling for other links */
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.95em;
+    text-decoration: none;
+}
+
+.login-card .caregiver-login-link {
+    color: #32b2e7; /* Button blue */
+    transition: color 0.2s ease;
+}
+.login-card .caregiver-login-link:hover {
+    color: #239fd3; /* Darker blue */
+    text-decoration: underline;
+}
+
+.login-card .signup-text {
+    color: #555; /* Regular text color */
+    margin-top: 1.25rem; /* More space for the last link */
+}
+
+.login-card .actual-signup-link { /* The "Sign up" part of the text */
+    color: #32b2e7; /* Button blue */
+    font-weight: 600; /* Make it slightly bolder */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-card .actual-signup-link:hover {
+    color: #239fd3; /* Darker blue */
+    text-decoration: underline;
+}
+
+/* Ensure footer is at the bottom if content is short */
+/* The body.login-page-body and .login-container flex properties handle this */
+
+/* Responsive adjustments for login card if needed */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 2rem 1.5rem; /* Reduce padding on very small screens */
+        margin: 0 1rem; /* Add some margin so it doesn't touch screen edges */
+    }
+
+    .login-card h2 {
+        font-size: 1.7em;
+    }
+}
+/* Sign Up Page Specific Styles
+-------------------------------------------------- */
+.signup-page-body {
+    background-color: #f0f4f7; /* Consistent light background */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.signup-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem; /* More vertical padding */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.signup-card {
+    background-color: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 650px; /* Wider card for more fields */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.signup-card h2 {
+    margin-bottom: 2rem;
+    font-size: 2em;
+    color: #333;
+    font-weight: 600;
+}
+
+.signup-card .form-group-icon {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.signup-card .form-group-icon label {
+    display: block;
+    margin-bottom: 0.5rem; /* Space between label and input */
+    font-weight: 500;
+    color: #444;
+    font-size: 0.9em;
+}
+
+.signup-card .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.signup-card .form-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888; /* Icon color */
+    font-size: 0.95em;
+}
+
+.signup-card input[type="text"],
+.signup-card input[type="email"],
+.signup-card input[type="tel"],
+.signup-card input[type="password"],
+.signup-card input[type="date"], /* For when it becomes type date */
+.signup-card select {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.5rem; /* Padding left for icon */
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    appearance: none; /* For custom select arrow if needed, but browser default is fine for now */
+}
+/* Specific styling for date input when placeholder is shown */
+.signup-card input[type="text"][placeholder*="MM/DD/YYYY"] {
+     padding: 0.85rem 1rem 0.85rem 2.5rem;
+}
+
+
+.signup-card select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23888888' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E"); /* Basic dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1em;
+    padding-right: 2.5rem; /* Make space for arrow */
+}
+/* For Firefox - to remove default arrow to show custom one */
+.signup-card select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #333;
+}
+.signup-card select::-moz-focus-inner {
+    border: 0;
+}
+
+
+.signup-card input::placeholder,
+.signup-card select option[value=""][disabled] { /* Style for disabled selected option as placeholder */
+    color: #888;
+}
+.signup-card select { /* Ensure selected non-disabled option color is normal */
+    color: #333;
+}
+.signup-card select:required:invalid { /* Style select when placeholder is showing and it's required */
+  color: #888;
+}
+
+
+.signup-card input:focus,
+.signup-card select:focus {
+    outline: none;
+    border-color: #32b2e7; /* Highlight color - same blue as login */
+    box-shadow: 0 0 0 2px rgba(50, 178, 231, 0.2);
+}
+
+/* Row for Gender and DOB */
+.signup-card .form-row {
+    display: flex;
+    gap: 1.5rem; /* Space between columns */
+    margin-bottom: 1.25rem;
+}
+
+.signup-card .form-column {
+    flex: 1; /* Each column takes equal width */
+    min-width: 0; /* Prevents overflow issues with flex items */
+}
+
+.signup-card .btn-signup-submit {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background-color: #32b2e7; /* Same blue as login button */
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1rem; /* Space above button */
+    margin-bottom: 1.5rem;
+}
+
+.signup-card .btn-signup-submit:hover {
+    background-color: #239fd3;
+}
+
+.signup-card .signup-page-link { /* Common styling for the bottom link */
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.95em;
+    text-decoration: none;
+}
+
+.signup-card .caregiver-signup-text {
+    color: #555;
+}
+
+.signup-card .actual-caregiver-signup-link {
+    color: #32b2e7; /* Button blue */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.signup-card .actual-caregiver-signup-link:hover {
+    color: #239fd3;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for sign-up card */
+@media (max-width: 768px) {
+    .signup-card {
+        max-width: 500px; /* Adjust max width for tablets */
+        padding: 2rem 2rem;
+    }
+    .signup-card .form-row {
+        flex-direction: column; /* Stack Gender and DOB on smaller screens */
+        gap: 1.25rem; /* Gap when stacked */
+        margin-bottom: 0; /* Remove bottom margin as individual items will have it */
+    }
+    .signup-card .form-row .form-group-icon { /* Ensure stacked items have bottom margin */
+        margin-bottom: 1.25rem;
+    }
+    /* Remove bottom margin for the last item in stacked row if it's the last overall form group before button */
+    .signup-card .form-row .form-group-icon:last-child {
+         margin-bottom: 1.25rem; /* Keep it if more fields follow or adjust as needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-card {
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+    .signup-card h2 {
+        font-size: 1.7em;
+    }
+    .signup-card input[type="text"],
+    .signup-card input[type="email"],
+    .signup-card input[type="tel"],
+    .signup-card input[type="password"],
+    .signup-card input[type="date"],
+    .signup-card select {
+        padding: 0.8rem 0.8rem 0.8rem 2.2rem; /* Adjust padding for smaller screens */
+    }
+    .signup-card .form-icon {
+        left: 10px; /* Adjust icon position */
+    }
+}
+/* Caregiver Sign Up Page Specific Styles
+-------------------------------------------------- */
+
+/* Reusing .signup-page-body and .signup-container if the general page layout is the same.
+   If specific adjustments are needed for caregiver signup container, use .caregiver-signup-container */
+.caregiver-signup-container {
+    /* Add specific styles if different from .signup-container, e.g., padding */
+}
+
+.caregiver-signup-card { /* Styles for the caregiver signup card */
+    background-color: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 550px; /* Adjust width as it has simpler fields */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Inherit .signup-card h2 styling if it's the same */
+/* .caregiver-signup-card h2 { ... } */
+
+/* Simpler Form Group for inputs without icons */
+.caregiver-signup-card .form-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.caregiver-signup-card .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #444;
+    font-size: 0.9em;
+}
+
+/* Inputs for Caregiver form (no left padding for icons) */
+.caregiver-signup-card input[type="text"],
+.caregiver-signup-card input[type="email"],
+.caregiver-signup-card input[type="tel"],
+.caregiver-signup-card input[type="password"] {
+    width: 100%;
+    padding: 0.85rem 1rem; /* Standard padding */
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.caregiver-signup-card input::placeholder {
+    color: #888;
+}
+
+.caregiver-signup-card input:focus {
+    outline: none;
+    border-color: #32b2e7; /* Highlight color - same blue */
+    box-shadow: 0 0 0 2px rgba(50, 178, 231, 0.2);
+}
+
+/* Reusing .btn-signup-submit styling from patient signup if identical */
+/* .caregiver-signup-card .btn-signup-submit { ... } */
+
+/* Links at the bottom of the caregiver signup card */
+.caregiver-signup-card .bottom-links {
+    color: #555;
+    font-size: 0.95em;
+    margin-top: 0.75rem; /* Consistent spacing for these links */
+    line-height: 1.4;
+}
+.caregiver-signup-card .bottom-links.or-separator {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    color: #777; /* Subtler color for "or" */
+}
+
+.caregiver-signup-card .link-highlight {
+    color: #32b2e7; /* Button blue */
+    font-weight: 500; /* Can adjust if needed */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.caregiver-signup-card .link-highlight:hover {
+    color: #239fd3;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for caregiver sign-up card */
+@media (max-width: 768px) {
+    .caregiver-signup-card {
+        max-width: 500px;
+        padding: 2rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .caregiver-signup-card {
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem; /* To prevent touching screen edges */
+    }
+     .caregiver-signup-card input[type="text"],
+     .caregiver-signup-card input[type="email"],
+     .caregiver-signup-card input[type="tel"],
+     .caregiver-signup-card input[type="password"] {
+        padding: 0.8rem 0.9rem; /* Adjust padding slightly for smaller screens */
+    }
+}
+/* Blood Pressure Monitor Page Styles
+-------------------------------------------------- */
+
+/* Using a generic page background class if not already defined,
+   otherwise ensure body or a wrapper has the light blue/gray.
+   .login-page-body or .signup-page-body styles might already cover this.
+   If not, add:
+*/
+.page-background {
+    background-color: #f0f4f7; /* Consistent light background */
+    /* If using flex for sticky footer, ensure it's applied here or on body directly */
+}
+
+.monitor-container {
+    max-width: 800px; /* Adjust as needed */
+    margin: 2.5rem auto; /* Centering and spacing from navbar */
+    padding: 2rem;
+    background-color: #fff; /* White background for the main content block */
+    border-radius: 10px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.monitor-main-title {
+    text-align: center;
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.bp-reading-cards {
+    display: flex;
+    justify-content: space-around; /* Or space-between */
+    gap: 1.5rem; /* Space between cards */
+    margin-bottom: 2.5rem;
+}
+
+.bp-card {
+    background-color: #e0f7fa; /* Light pastel blue from image */
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 0; /* Allows cards to grow equally */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.bp-card-label {
+    display: block;
+    font-size: 1em;
+    color: #00796b; /* Darker teal for label on light blue */
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.bp-card-value {
+    display: block;
+    font-size: 3em; /* Large value */
+    color: #004d40; /* Very dark teal for value */
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.bp-card-unit {
+    display: block;
+    font-size: 0.9em;
+    color: #00796b; /* Darker teal for unit */
+}
+
+.bp-prediction-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.bp-prediction-label {
+    display: block;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.bp-prediction-value {
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.bp-prediction-value.status-normal {
+    color: #388e3c; /* Green for normal status */
+}
+.bp-prediction-value.status-high { /* Example for other statuses */
+    color: #d32f2f; /* Red for high status */
+}
+.bp-prediction-value.status-low { /* Example for other statuses */
+    color: #f57c00; /* Orange for low status */
+}
+
+
+.bp-info-box {
+    background-color: #f8f9fa; /* Very light gray for info box */
+    border: 1px solid #e9ecef;
+    border-left: 4px solid #32b2e7; /* Accent blue border */
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 2rem; /* Space before content tabs or footer */
+}
+
+.bp-info-title {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.bp-info-text {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.bp-info-text .fa-info-circle {
+    margin-right: 0.5rem;
+    color: #32b2e7; /* Icon color matches accent border */
+}
+
+/* Content Tab Navigation (Bottom of content area) */
+.content-tab-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.75rem 0;
+    background-color: #fff; /* Can match monitor-container or be distinct */
+    border-top: 1px solid #e0e0e0;
+    border-radius: 0 0 10px 10px; /* Rounded if it's at the bottom of a card */
+    max-width: 800px; /* Match monitor-container width */
+    margin: -2rem auto 2.5rem auto; /* Pull up slightly if monitor-container has padding-bottom */
+                                   /* Adjust margins to position correctly relative to monitor-container and footer */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.03); /* Optional subtle shadow */
+}
+
+.content-tab-nav .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #555;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9em;
+}
+
+.content-tab-nav .tab-item i {
+    font-size: 1.6em; /* Icon size */
+    margin-bottom: 0.3rem;
+}
+
+.content-tab-nav .tab-item:hover {
+    background-color: #f0f0f0;
+    color: #007bff; /* VitalCare primary blue for hover */
+}
+
+.content-tab-nav .tab-item.active {
+    color: #007bff; /* VitalCare primary blue */
+    font-weight: 600; /* Or a slightly different background */
+    /* background-color: #e9f5ff; */ /* Example active background */
+}
+.content-tab-nav .tab-item.active i {
+    color: #007bff;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .monitor-main-title {
+        font-size: 1.9em;
+    }
+    .bp-reading-cards {
+        flex-direction: column; /* Stack cards on smaller screens */
+        gap: 1rem;
+    }
+    .bp-card {
+        padding: 1rem 1.5rem;
+    }
+    .bp-card-value {
+        font-size: 2.5em;
+    }
+    .content-tab-nav {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .monitor-container {
+        margin: 1.5rem auto;
+        padding: 1.5rem 1rem; /* Reduce padding on mobile */
+    }
+    .monitor-main-title {
+        font-size: 1.6em;
+        margin-bottom: 1.5rem;
+    }
+    .bp-card-value {
+        font-size: 2.2em;
+    }
+    .bp-prediction-value {
+        font-size: 1.3em;
+    }
+    .content-tab-nav .tab-item span {
+        font-size: 0.8em; /* Smaller text for tabs on mobile */
+    }
+    .content-tab-nav .tab-item i {
+        font-size: 1.4em;
+    }
+}
+/* Body Temperature Monitor Page Styles
+-------------------------------------------------- */
+
+/* Re-use .page-background, .monitor-container, .monitor-main-title if suitable.
+   New specific classes can be added for overrides. */
+
+.temperature-monitor-container {
+    /* Any specific overrides for the temperature monitor container */
+}
+
+.monitor-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem; /* Matches .monitor-main-title original margin-bottom */
+}
+
+.monitor-header-flex .monitor-main-title {
+    margin-bottom: 0; /* Reset margin as it's handled by the flex container */
+}
+
+.title-icon-action {
+    font-size: 1.5em; /* Adjust size as needed */
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.title-icon-action:hover {
+    color: #007bff; /* VitalCare primary blue */
+}
+
+/* Generic Reading Cards Grid (if not already generic from BP page) */
+.reading-cards-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Generic Stat Card (can replace .bp-card if refactored) */
+.stat-card {
+    background-color: #e0f7fa; /* Light pastel blue from image - same as bp-card */
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.stat-card-label {
+    display: block;
+    font-size: 1em;
+    color: #00796b;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.stat-card-value {
+    display: block;
+    font-size: 3em;
+    color: #004d40;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.stat-card-degree { /* For styling the degree symbol if needed, though it can be part of the value string */
+    font-size: 0.7em;
+    vertical-align: super;
+    margin-left: -0.1em; /* Adjust spacing */
+}
+
+
+.temp-card .stat-card-value { /* Specific adjustments if needed for temp cards */
+    /* Example: font-size: 2.8em; if temperature values are typically shorter */
+}
+
+/* Generic Prediction Section (can replace .bp-prediction-section) */
+.prediction-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.prediction-label {
+    display: block;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.prediction-value { /* General class for prediction value text */
+    font-size: 1.6em;
+    font-weight: 600;
+    display: inline-flex; /* To align icon and text */
+    align-items: center;
+}
+.prediction-value.status-normal {
+    color: #388e3c;
+}
+/* Add other status classes as needed (e.g., .status-high, .status-low from BP page) */
+
+.prediction-icon {
+    margin-right: 0.5rem;
+    font-size: 1em; /* Relative to .prediction-value font-size */
+}
+
+
+/* Generic Info Box (can replace .bp-info-box) */
+.info-box {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-left: 4px solid #32b2e7; /* Default accent blue */
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}
+.temp-info-box { /* If any specific changes from the generic info-box */
+    border-left-color: #32b2e7; /* Or another color if needed */
+}
+
+
+.info-title { /* Generic info title */
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.info-text { /* Generic info text */
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+.info-text .fa-info-circle { /* If info icon is used inside info-text */
+    margin-right: 0.5rem;
+    color: #32b2e7;
+}
+
+/* Monitor Action Buttons */
+.monitor-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem; /* Space before content tabs */
+}
+
+.btn-monitor-action {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1.05em;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between icon and text */
+}
+
+.btn-monitor-action.primary {
+    background-color: #32b2e7; /* Sky blue, same as login/signup buttons */
+    border: 1px solid #32b2e7;
+    color: white;
+}
+.btn-monitor-action.primary:hover {
+    background-color: #239fd3;
+    border-color: #239fd3;
+}
+
+.btn-monitor-action.secondary {
+    background-color: #e9f5ff; /* Lighter blue background */
+    border: 1px solid #a8d8f0; /* Slightly darker blue border */
+    color: #239fd3; /* Darker blue text */
+}
+.btn-monitor-action.secondary:hover {
+    background-color: #d4eaf7;
+    border-color: #7ec2e6;
+    color: #1a7ca6;
+}
+
+
+/* Ensure .content-tab-nav styles from blood-pressure.css are applied.
+   The active state will be handled by the class on the HTML element. */
+
+
+/* Responsive Adjustments for Temperature Monitor */
+@media (max-width: 768px) {
+    /* Re-use .reading-cards-grid flex-direction: column from BP if applicable */
+    .monitor-header-flex .monitor-main-title {
+        font-size: 1.9em; /* Match BP responsive title */
+    }
+    .stat-card-value {
+        font-size: 2.5em; /* Match BP responsive value */
+    }
+    .monitor-actions {
+        flex-direction: column; /* Already column, good for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Re-use .monitor-container padding from BP if applicable */
+    .monitor-header-flex .monitor-main-title {
+        font-size: 1.6em;
+    }
+    .stat-card-value {
+        font-size: 2.2em;
+    }
+}
+/* Heart Rate Monitor Page Styles
+-------------------------------------------------- */
+
+/* Re-use .page-background, .monitor-container, .monitor-main-title if suitable.
+   .heart-rate-monitor-container can be used for specific overrides. */
+
+.heart-rate-monitor-container {
+    /* If the container needs less padding or different max-width */
+    padding-bottom: 1.5rem; /* Adjust if info text is closer to tabs */
+}
+
+.hr-display-card {
+    background-color: #e0f7fa; /* Light pastel blue, same as other monitor cards */
+    border-radius: 10px; /* Slightly more rounded than previous stat-cards */
+    padding: 2rem 2.5rem;
+    text-align: center;
+    max-width: 380px; /* Card is narrower as it's a single display */
+    margin: 0 auto 2rem auto; /* Center the card and space below */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.hr-icon {
+    font-size: 2.8em; /* Large heart icon */
+    color: #ff5252; /* A vibrant red/pink for the heart icon */
+    margin-bottom: 0.75rem;
+    display: block; /* Make it a block to allow margin */
+}
+
+.hr-value-section {
+    margin-bottom: 0.5rem;
+}
+
+.hr-value {
+    font-size: 4em; /* Very large value */
+    color: #004d40; /* Dark teal, consistent with other monitors */
+    font-weight: 700;
+    line-height: 1;
+    margin-right: 0.15em; /* Small space before bpm */
+}
+
+.hr-unit {
+    font-size: 1.4em; /* Smaller unit text */
+    color: #00695c; /* Medium teal */
+    font-weight: 500;
+    vertical-align: baseline; /* Align with the number better */
+}
+
+.hr-status {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.hr-status.status-normal {
+    color: #388e3c; /* Green for normal status - consistent */
+}
+/* Add .status-high, .status-low if needed */
+/* .hr-status.status-high { color: #d32f2f; } */
+/* .hr-status.status-low { color: #f57c00; } */
+
+
+.hr-info-text {
+    text-align: center;
+    font-size: 1em; /* Slightly larger than previous .info-text */
+    color: #444; /* Darker gray for better readability */
+    line-height: 1.6;
+    max-width: 500px; /* Constrain width for readability */
+    margin: 0 auto 2.5rem auto; /* Center and space before tabs */
+    padding: 0 1rem; /* Padding if text is long */
+}
+
+.hr-info-text strong {
+    color: #333; /* Make bold text slightly darker */
+    font-weight: 600;
+}
+
+
+/* Ensure .content-tab-nav styles from previous monitor pages are applied.
+   The active state is handled by the class on the HTML element.
+   If you haven't already, make sure the links in .content-tab-nav on
+   blood-pressure.html and temperature.html are updated to point to heart-rate.html
+   for the "Heart Rate" tab.
+*/
+
+/* Responsive Adjustments for Heart Rate Monitor */
+@media (max-width: 768px) {
+    .hr-display-card {
+        padding: 1.5rem 2rem;
+        max-width: 340px;
+    }
+    .hr-value {
+        font-size: 3.5em;
+    }
+    .hr-icon {
+        font-size: 2.5em;
+    }
+    .hr-info-text {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .heart-rate-monitor-container {
+        padding-left: 1rem; /* Ensure consistent padding with other monitor pages */
+        padding-right: 1rem;
+    }
+    .hr-display-card {
+        max-width: 90%; /* Allow it to take more width on small screens */
+        padding: 1.5rem 1rem;
+    }
+    .hr-value {
+        font-size: 3em;
+    }
+     .hr-unit {
+        font-size: 1.2em;
+    }
+    .hr-status {
+        font-size: 1.1em;
+    }
+    .hr-info-text {
+        font-size: 0.9em;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Settings (Patient) Page Styles - Focused Section
+-------------------------------------------------- */
+
+/* Ensure .page-background is defined for the overall page background
+   e.g., background-color: #f0f4f7; */
+
+.settings-page-container {
+    max-width: 750px;
+    margin: 2rem auto; /* Vertical margin for spacing from navbar/footer */
+    padding: 1rem 1.5rem; /* Padding for the overall content area on the page */
+    flex-grow: 1;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem; /* Aligns with potential card padding */
+}
+
+.settings-title {
+    font-size: 2em;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+
+.edit-settings-link {
+    font-size: 1.4em;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.edit-settings-link:hover {
+    color: #007bff; /* VitalCare primary blue */
+}
+
+.settings-card {
+    background-color: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0f3ff; /* Subtle light blue border, as discussed */
+}
+
+/* Styles for form groups with icons (reused/adapted from patient sign-up) */
+.settings-card .form-group-icon {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.settings-card .form-group-icon label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #444; /* Label color */
+    font-size: 0.9em;
+}
+
+.settings-card .input-with-icon {
+    position: relative;
+    display: flex; /* Helps align icon if it were part of this flex, but icon is absolute */
+    align-items: center;
+}
+
+.settings-card .form-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888; /* Icon color */
+    font-size: 0.95em;
+    z-index: 2; /* Ensure icon is above input background */
+}
+
+/* General input/select styling within the settings card (for fields with icons) */
+.settings-card .input-with-icon input[type="text"],
+.settings-card .input-with-icon input[type="email"],
+.settings-card .input-with-icon input[type="tel"],
+.settings-card .input-with-icon input[type="password"],
+.settings-card .input-with-icon select {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.5rem; /* Left padding for icon */
+    border: 1px solid #d0d5dd; /* Input border */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settings-card .input-with-icon select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23888888' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1em;
+    padding-right: 2.5rem; /* Make space for arrow */
+    appearance: none; /* For custom select arrow */
+}
+/* Firefox specific styling for select */
+.settings-card .input-with-icon select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #333;
+}
+
+.settings-card .input-with-icon input::placeholder,
+.settings-card .input-with-icon select option[value=""][disabled] {
+    color: #888; /* Placeholder text color */
+}
+.settings-card .input-with-icon select {
+    color: #333; /* Default select text color */
+}
+.settings-card .input-with-icon select:required:invalid {
+  color: #888; /* Color when placeholder is selected and field is required */
+}
+
+
+.settings-card .input-with-icon input:focus,
+.settings-card .input-with-icon select:focus {
+    outline: none;
+    border-color: #32b2e7; /* Highlight color on focus */
+    box-shadow: 0 0 0 2px rgba(50, 178, 231, 0.2); /* Subtle glow on focus */
+}
+
+/* Specific for password group and "Change" link */
+.password-settings-group .input-with-icon {
+    /* This class is on the div that contains the icon and the input element.
+       The "Change" link is a sibling to this div in my initial HTML structure,
+       but it should be inside the flex wrapper with the input.
+       Let's ensure the password-input-wrapper handles the flex.
+    */
+}
+
+.password-input-wrapper { /* This div wraps the icon, input[type=password], and the "Change" link */
+    display: flex;
+    align-items: center;
+    position: relative; /* Needed for the absolutely positioned .form-icon */
+}
+
+/* The password input itself within the flex wrapper */
+.settings-card .password-input-wrapper input[type="password"] {
+    flex-grow: 1; /* Takes available space */
+    /* The padding for the icon is already applied by the general input styles above */
+}
+
+.password-change-link {
+    margin-left: 1rem; /* Space between input and "Change" link */
+    font-size: 0.9em;
+    color: #007bff; /* VitalCare primary blue */
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap; /* Prevent wrapping */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.password-change-link:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Save Changes Button */
+.btn-save-changes {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background-color: #32b2e7; /* Sky blue */
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1.5rem;
+}
+
+.btn-save-changes:hover {
+    background-color: #239fd3; /* Darker sky blue */
+}
+
+/* Responsive Adjustments for Settings Page */
+@media (max-width: 768px) {
+    .settings-page-container {
+        margin: 1.5rem auto;
+        padding: 1rem;
+    }
+    .settings-header {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    .settings-title {
+        font-size: 1.7em;
+    }
+    .settings-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-page-container {
+        margin: 1rem auto;
+    }
+    .settings-title {
+        font-size: 1.5em;
+    }
+    .edit-settings-link {
+        font-size: 1.2em;
+    }
+    /* Password input wrapper might need adjustment on small screens if "Change" link causes overflow */
+    .password-input-wrapper {
+        /* You might consider flex-wrap: wrap; if space is very tight,
+           but it's generally better to keep them inline if possible. */
+    }
+    .password-change-link {
+        font-size: 0.85em;
+        margin-left: 0.5rem; /* Reduce margin on small screens */
+    }
+    .btn-save-changes {
+        font-size: 1em;
+    }
+}
+/* Settings (Caregiver) Page Styles
+-------------------------------------------------- */
+
+/* Ensure .page-background is defined (e.g., background-color: #f0f4f7;) */
+
+/* Re-use .settings-page-container, .settings-header, .settings-title from Patient Settings if layouts are identical.
+   .caregiver-settings-container and .caregiver-settings-card can be used for specific overrides if needed. */
+
+.settings-header .btn-edit-settings { /* Styling for the "Edit" button in the header */
+    background-color: #e9f5ff; /* Light blue background */
+    border: 1px solid #a8d8f0; /* Border color */
+    color: #007bff; /* VitalCare primary blue for text/icon */
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem; /* Space between icon and text */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.settings-header .btn-edit-settings:hover {
+    background-color: #d4eaf7;
+    border-color: #7ec2e6;
+}
+
+.settings-header .btn-edit-settings i {
+    /* Icon already colored by button's color property */
+}
+
+/* Assuming .settings-card styles from Patient Settings are mostly applicable.
+   If you used .settings-card for patient settings, you can use it here too.
+   If specific width or minor tweaks are needed: */
+.caregiver-settings-card {
+    /* Example: if caregiver card needs a different max-width */
+    /* max-width: 700px; */
+}
+
+/* Reusing .form-group-icon, .input-with-icon, .form-icon,
+   and input/select base styles from patient sign-up/patient settings pages.
+   Ensure selectors like '.settings-card .form-group-icon label' and
+   '.settings-card .input-with-icon input' are general enough or adapt.
+   The placeholder color, focus styles, etc., should carry over.
+*/
+
+/* Password field for caregiver settings is simpler (no "Change" link inline with input) */
+.caregiver-settings-card .form-group-icon input[type="password"] {
+    /* Styles for password input are covered by the general
+       '.settings-card .input-with-icon input[type="password"]'
+       or more general '.input-with-icon input' rules.
+       No special flex wrapper needed here for a "Change" link.
+    */
+}
+
+/* Reusing .btn-save-changes styles from Patient Settings if identical.
+   The image shows a button that might be slightly lighter or look disabled.
+   If you want it to look distinct: */
+.caregiver-settings-card .btn-save-changes {
+    /* If you want it to look lighter/different from patient settings save button: */
+    /* background-color: #5fc5f0; */ /* A slightly lighter active blue */
+    /* border: 1px solid #5fc5f0; */
+}
+/* .caregiver-settings-card .btn-save-changes:hover {
+    background-color: #49b8e4;
+} */
+
+
+/* Responsive Adjustments for Caregiver Settings Page */
+/* Reuse responsive styles from .settings-page-container, .settings-header,
+   .settings-title, .settings-card if they are general enough. */
+
+@media (max-width: 480px) {
+    .settings-header .btn-edit-settings {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85em;
+    }
+     .settings-header .btn-edit-settings i {
+        font-size: 0.9em; /* Adjust icon size within button if needed */
+    }
+}
+/* Health History Page Styles
+-------------------------------------------------- */
+
+/* Ensure .page-background is defined (e.g., background-color: #f0f4f7;) */
+
+.history-page-container {
+    max-width: 900px; /* Adjust as needed */
+    margin: 2rem auto; /* Centering and spacing */
+    padding: 1rem 1.5rem; /* Padding for the overall content area */
+    flex-grow: 1; /* For sticky footer if body is flex */
+}
+
+.history-main-title {
+    font-size: 2em; /* Page title size */
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1.5rem; /* Space below title */
+    text-align: left; /* As per image, title is left-aligned */
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between history item cards */
+}
+
+.history-item-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.2s ease;
+}
+
+.history-item-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.history-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Fixed size for icon container */
+    height: 40px;
+    border-radius: 50%; /* Circular background for icon */
+    margin-right: 1rem;
+    font-size: 1.2em; /* Icon size itself */
+}
+
+/* Icon background and colors - reusing from dashboard or defining new ones */
+.history-item-icon.temp-icon-bg {
+    background-color: rgba(243, 156, 18, 0.15); /* Light orange */
+    color: #f39c12; /* Orange */
+}
+.history-item-icon.heart-icon-bg {
+    background-color: rgba(231, 76, 60, 0.15); /* Light red */
+    color: #e74c3c; /* Red */
+}
+.history-item-icon.blood-icon-bg {
+    background-color: rgba(52, 152, 219, 0.15); /* Light blue */
+    color: #3498db; /* Blue */
+}
+
+.history-item-details {
+    flex-grow: 1; /* Takes up available space */
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item-label {
+    font-size: 0.95em;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+}
+
+.history-item-value {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+.history-item-value .history-item-unit-symbol { /* For degree symbol mostly */
+    font-size: 0.7em;
+    vertical-align: super;
+    margin-left: -0.1em;
+}
+.history-item-value .history-item-unit { /* For text units like bpm, mmHg */
+    font-size: 0.7em;
+    font-weight: 500;
+    color: #777;
+    margin-left: 0.25em;
+}
+
+/* Value colors - consistent with icons/dashboard */
+.history-item-value.temp-value-color {
+    color: #d35400; /* Darker orange for value */
+}
+.history-item-value.heart-value-color {
+    color: #c0392b; /* Darker red for value */
+}
+.history-item-value.blood-value-color {
+    color: #2980b9; /* Darker blue for value */
+}
+
+
+.history-item-timestamp {
+    font-size: 0.85em;
+    color: #777;
+    white-space: nowrap; /* Prevent timestamp from wrapping */
+    margin-left: 1rem; /* Space from details */
+}
+
+/* Responsive Adjustments for Health History Page */
+@media (max-width: 768px) {
+    .history-page-container {
+        margin: 1.5rem auto;
+        padding: 1rem;
+    }
+    .history-main-title {
+        font-size: 1.8em;
+    }
+    .history-item-card {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-main-title {
+        font-size: 1.6em;
+        text-align: center; /* Center title on very small screens */
+    }
+    .history-item-card {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align items to the start */
+        padding: 1rem;
+    }
+    .history-item-icon {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 0.75rem; /* Add bottom margin when stacked */
+    }
+    .history-item-details {
+        margin-bottom: 0.5rem; /* Space below details when stacked */
+    }
+    .history-item-timestamp {
+        margin-left: 0; /* Remove left margin */
+        align-self: flex-end; /* Align timestamp to the right when stacked */
+        font-size: 0.8em;
+    }
+    .history-item-value {
+        font-size: 1.2em;
+    }
+} 
+/* === Popup Messages Container === */
+.popup-messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* مسافة بين رسائل التنبيه */
+    margin-bottom: 2rem; /* مسافة أسفل حاوية التنبيهات قبل باقي المحتوى */
+}
+
+/* === General Popup Message Styling === */
+.popup-message {
+    display: flex;
+    align-items: flex-start; /* محاذاة الأيقونة مع بداية النص */
+    padding: 1.25rem;
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative; /* لوضع زر الإغلاق بشكل صحيح */
+}
+
+.popup-icon-container {
+    flex-shrink: 0; /* لمنع الأيقونة من التقلص */
+    margin-right: 1rem;
+    font-size: 1.75rem; /* حجم الأيقونة */
+    width: 32px; /* لضمان مساحة كافية للأيقونة ومحاذاتها */
+    text-align: center;
+    margin-top: 0.125rem; /* لضبط المحاذاة الرأسية مع العنوان */
+}
+
+.popup-content {
+    flex-grow: 1;
+}
+
+.popup-content h4 {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600;
+}
+
+.popup-content .popup-subtitle {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.popup-content p:not(.popup-subtitle) {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #4A5568; /* Tailwind gray-700, adjust as needed */
+}
+.popup-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+.popup-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #718096; /* Tailwind gray-500 */
+    cursor: pointer;
+    padding: 0.25rem;
+}
+.popup-close:hover {
+    color: #2D3748; /* Tailwind gray-800 */
+}
+
+/* === Popup Actions (Buttons) === */
+.popup-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-popup {
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem; /* 6px */
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.btn-popup.btn-snooze {
+    background-color: transparent;
+}
+
+/* === Specific Alert Styles === */
+
+/* Info (Medication Reminder) */
+.popup-message.alert-info {
+    background-color: #E0F2FE; /* Tailwind sky-100 */
+    border-left: 5px solid #0EA5E9; /* Tailwind sky-500 */
+}
+.alert-info .popup-icon-container {
+    color: #0EA5E9; /* Tailwind sky-500 */
+}
+.alert-info .popup-content h4 {
+    color: #0369A1; /* Tailwind sky-700 */
+}
+.alert-info .popup-content .popup-subtitle {
+    color: #0EA5E9;
+}
+.alert-info .btn-taken {
+    background-color: #0EA5E9; /* Tailwind sky-500 */
+    color: white;
+}
+.alert-info .btn-taken:hover {
+    background-color: #0284C7; /* Tailwind sky-600 */
+}
+.alert-info .btn-snooze {
+    color: #0EA5E9; /* Tailwind sky-500 */
+    border-color: #7DD3FC; /* Tailwind sky-300 */
+}
+.alert-info .btn-snooze:hover {
+    background-color: #BAE6FD; /* Tailwind sky-200 */
+}
+
+/* Warning (Mealtime Reminder) */
+.popup-message.alert-warning {
+    background-color: #FFFBEB; /* Tailwind amber-50 */
+    border-left: 5px solid #F59E0B; /* Tailwind amber-500 */
+}
+.alert-warning .popup-icon-container {
+    color: #F59E0B; /* Tailwind amber-500 */
+}
+.alert-warning .popup-content h4 {
+    color: #B45309; /* Tailwind amber-700 */
+}
+.alert-warning .popup-content .popup-subtitle {
+    color: #F59E0B;
+}
+.alert-warning .btn-okay {
+    background-color: #F59E0B; /* Tailwind amber-500 */
+    color: white;
+}
+.alert-warning .btn-okay:hover {
+    background-color: #D97706; /* Tailwind amber-600 */
+}
+.alert-warning .btn-snooze {
+    color: #F59E0B; /* Tailwind amber-500 */
+    border-color: #FCD34D; /* Tailwind amber-300 */
+}
+.alert-warning .btn-snooze:hover {
+    background-color: #FEF3C7; /* Tailwind amber-100 */
+}
+
+/* Danger (Emergency Alert) */
+.popup-message.alert-danger {
+    background-color: #FEE2E2; /* Tailwind red-100 */
+    border-left: 5px solid #EF4444; /* Tailwind red-500 */
+}
+.alert-danger .popup-icon-container {
+    color: #EF4444; /* Tailwind red-500 */
+}
+.alert-danger .popup-content h4 {
+    color: #B91C1C; /* Tailwind red-700 */
+}
+.alert-danger .popup-content .popup-subtitle {
+    color: #EF4444;
+}
+.alert-danger .popup-content p:not(.popup-subtitle) {
+    color: #7F1D1D; /* Tailwind red-900, for stronger text on light red bg */
+}
